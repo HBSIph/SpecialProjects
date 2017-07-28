@@ -1,2 +1,2 @@
-# evs-nu
-Online Voting System for NU-NS
+# Web-based Voting System for NU-NS
+Web-based Voting System
