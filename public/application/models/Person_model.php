@@ -24,24 +24,9 @@ class Person_Model extends CI_Model
             'first_name' => $this->input->post('first_name'),
             'middle_name' => $this->input->post('middle_name'),
             'last_name' => $this->input->post('last_name'),
-            'country' => $this->input->post('country'),
-            'institution' => $this->input->post('institution'),
-            'designation' => $this->input->post('designation'),
-            'badge_name' => $this->input->post('badge_name'),
-            'contact_number' => $this->input->post('contact_number'),
-            'email' => $this->input->post('email'),
-            'presenter' => $this->input->post('presenter'),
-            'food_preference' => $this->input->post('food_preference'),
-            'dt_created' => date('Y-m-d H:i:s'),
-            'ec_name' => $this->input->post('ec_name'),
-            'ec_contact_number' => $this->input->post('ec_contact_number'),
-            'ec_relationship' => $this->input->post('ec_relationship'),
-            'paper_number' => $this->input->post('paper_number'),
-            'program_enrolled_in' => $this->input->post('program_enrolled_in'),
-            'school_enrolled_at' => $this->input->post('school_enrolled_at')
         );
 
-        $sp = 'call sp_add_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sp = 'call sp_add_person(?, ?, ?)';
         $this->db->query($sp, $data);
     }
 
@@ -52,24 +37,9 @@ class Person_Model extends CI_Model
             'first_name' => $this->input->post('first_name'),
             'middle_name' => $this->input->post('middle_name'),
             'last_name' => $this->input->post('last_name'),
-            'country' => $this->input->post('country'),
-            'institution' => $this->input->post('institution'),
-            'designation' => $this->input->post('designation'),
-            'badge_name' => $this->input->post('badge_name'),
-            'contact_number' => $this->input->post('contact_number'),
-            'email' => $this->input->post('email'),
-            'presenter' => $this->input->post('presenter'),
-            'food_preference' => $this->input->post('food_preference'),
-            'dt_update' => date('Y-m-d H:i:s'),
-            'ec_name' => $this->input->post('ec_name'),
-            'ec_contact_number' => $this->input->post('ec_contact_number'),
-            'ec_relationship' => $this->input->post('ec_relationship'),
-            'paper_number' => $this->input->post('paper_number'),
-            'program_enrolled_in' => $this->input->post('program_enrolled_in'),
-            'school_enrolled_at' => $this->input->post('school_enrolled_at')
         );
 
-        $sp = 'call sp_update_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sp = 'call sp_update_person(?, ?, ?, ?)';
         $this->db->query($sp, $data);
     }
 

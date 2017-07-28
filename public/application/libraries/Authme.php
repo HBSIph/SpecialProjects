@@ -21,9 +21,9 @@ class Authme
         return $this->CI->session->userdata('logged_in');
     }
 
-    public function signin($username, $password)
+    public function signin($password)
     {
-        $user = $this->CI->authme_model->_signin($username, hash('sha256', $password));
+        $user = $this->CI->authme_model->_signin(hash('sha256', $password));
         if ($user) {
             unset($user->password);
             $this->CI->session->set_userdata(array(
