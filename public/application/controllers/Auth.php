@@ -39,7 +39,7 @@ class Auth extends CI_Controller
         }
 
         $this->form_validation
-            ->set_rules('password', 'Password', 'trim|required|xss_clean')
+            ->set_rules('password', 'Access Code', 'trim|required|xss_clean')
             ->set_error_delimiters('<li>', '</li>');
 
         if ($this->form_validation->run()) {
@@ -51,7 +51,7 @@ class Auth extends CI_Controller
             } else {
                 $view_data = array(
                     'status' => false,
-                    'msg' => '<div class="alert alert-danger">Unable to login, Please double check password / access code</div>',
+                    'msg' => '<div class="alert alert-danger">Unable to login, Please double check your Access Code</div>',
                 );
                 echo json_encode($view_data);
             }
