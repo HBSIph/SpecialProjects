@@ -113,22 +113,34 @@
                                 <div class="qrcode text-center">
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-xs-12">
+                            <div class="col-lg-2 col-md-2 col-xs-12">
+                                <div class="form-group prefix">
+                                    <label class="control-label" for="prefix">Prefix</label>
+                                    <input type="text" id="prefix" class="form-control" name="prefix" tabindex="2">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-xs-12">
                                 <div class="form-group first-name">
                                     <label class="control-label" for="first-name">First Name<span class="important">&ast;</span></label>
-                                    <input type="text" id="first-name" class="form-control" name="first_name" tabindex="2">
+                                    <input type="text" id="first-name" class="form-control" name="first_name" tabindex="3">
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-xs-12">
+                            <div class="col-lg-5 col-md-5 col-xs-12">
                                 <div class="form-group middle-name">
                                     <label class="control-label" for="middle-name">Middle Name</label>
-                                    <input type="text" id="middle-name" class="form-control" name="middle_name" tabindex="3">
+                                    <input type="text" id="middle-name" class="form-control" name="middle_name" tabindex="4">
                                 </div>
                             </div>
-                            <div class="col-lg-4 col-md-4 col-xs-12">
+                            <div class="col-lg-7 col-md-7 col-xs-12">
                                 <div class="form-group last-name">
                                     <label class="control-label" for="last-name">Last Name<span class="important">&ast;</span></label>
-                                    <input type="text" id="last-name" class="form-control" name="last_name" tabindex="4">
+                                    <input type="text" id="last-name" class="form-control" name="last_name" tabindex="5">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-xs-12">
+                                <div class="form-group suffix">
+                                    <label class="control-label" for="suffix">Suffix</label>
+                                    <input type="text" id="suffix" class="form-control" name="suffix" tabindex="6">
                                 </div>
                             </div>
                         </div>
@@ -136,7 +148,7 @@
                 </div>
                 <div class="modal-footer">
                     <div>
-                        <button type="submit" id="btn-change-state" class="btn btn-lg btn-primary btn-rounded-corner" data-loading-text="loading..." tabindex="5">Submit</button>
+                        <button type="submit" id="btn-change-state" class="btn btn-lg btn-primary btn-rounded-corner" data-loading-text="loading..." tabindex="9">Submit</button>
                         <button type="button" class="btn btn-lg btn-default btn-rounded-corner" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -183,6 +195,7 @@
 <script type="text/javascript" src="<?= base_url('assets/pace/themes/js/pace.min.js') ?>"></script>
 <script type="text/javascript" src="<?= base_url('assets/datatables/js/jquery.dataTables.min.js'); ?>"></script>
 <script type="text/javascript" src="<?= base_url('assets/datatables/js/dataTables.bootstrap.js'); ?>"></script>
+<script type="text/javascript" src="<?= base_url('assets/icheck/js/icheck.min.js'); ?>"></script>
 
 <script type="text/javascript">
     $(function () {
@@ -308,10 +321,12 @@
                                 el.find('input:hidden[name="id"]').val(data.id);
                                 el.find('input:hidden[name="qrcode"]').val(data.qrcode);
                                 el.find('.access-code input').val(data.access_code);
+                                el.find('.qrcode').html('<img src="' + data.qrcode + '" alt="QR Code"/>');
+                                el.find('.prefix input').val(data.prefix);
                                 el.find('.first-name input').val(data.first_name);
                                 el.find('.middle-name input').val(data.middle_name);
                                 el.find('.last-name input').val(data.last_name);
-                                el.find('.qrcode').html('<img src="' + data.qrcode + '" alt="QR Code"/>');
+                                el.find('.suffix input').val(data.suffix);
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -511,6 +526,58 @@
             }
         };
 
+        // GET: Dropdown list
+        var dropDownList = {
+            init: function () {
+                this.displayPositionList();
+                this.displayGroupList();
+            },
+            displayPositionList: function () {
+                var el = $('.position');
+                var data = el.serialize();
+                var jqxhr = $.ajax({
+                    url: baseURL + '/admin/ddl_position',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: data,
+                    cache: false,
+                    processData: false
+                });
+                jqxhr.done(function (data) {
+                    if (data) {
+                        $.each(data.position, function (key, value) {
+                            el.find('#position').append('<option value="' + value.id + '" data-code="' + value.id + '">' + value.position_name + '</option>');
+                        });
+                    }
+                });
+                jqxhr.fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log('The following error occurred: ' + textStatus, errorThrown);
+                });
+            },
+            displayGroupList: function () {
+                var el = $('.group');
+                var data = el.serialize();
+                var jqxhr = $.ajax({
+                    url: baseURL + '/admin/ddl_group',
+                    type: 'GET',
+                    dataType: 'json',
+                    data: data,
+                    cache: false,
+                    processData: false
+                });
+                jqxhr.done(function (data) {
+                    if (data) {
+                        $.each(data.group, function (key, value) {
+                            el.find('#group').append('<option value="' + value.id + '">' + value.group_name + '</option>');
+                        });
+                    }
+                });
+                jqxhr.fail(function (jqXHR, textStatus, errorThrown) {
+                    console.log('The following error occurred: ' + textStatus, errorThrown);
+                });
+            }
+        };
+
         // Other Methods
         var otherMethods = {
             init: function () {
@@ -544,7 +611,16 @@
                         top: 50
                     }
                 });
-            }
+            },
+            customCheckbox: function () {
+                $('input').iCheck({
+                    labelHover: false,
+                    cursor: true,
+                    checkboxClass: 'iradio_square-green',
+                    radioClass: 'iradio_square-green',
+                    increaseArea: '20%'
+                });
+            },
         };
 
         personsList.init();
@@ -552,6 +628,7 @@
         addPerson.init();
         updatePerson.init();
         deletePerson.init();
+        dropDownList.init();
         otherMethods.init();
     });
 </script>

@@ -14,7 +14,7 @@ class Admin extends CI_Controller
 
     public function index()
     {
-        $this->dashboard();
+        $this->persons();
     }
 
     // Dashboard
@@ -73,9 +73,16 @@ class Admin extends CI_Controller
             $qrcode = $this->_alpha_numeric_randomizer();
             $view_data = [
                 'id' => (int)$row->id,
+                'prefix' => $row->prefix,
                 'first_name' => $row->first_name,
                 'middle_name' => $row->middle_name,
                 'last_name' => $row->last_name,
+                'suffix' => $row->suffix,
+                'is_candidate' => (int)$row->is_candidate,
+                'position_id' => (int)$row->p_id,
+                'position_name' => $row->position_name,
+                'group_id' => (int)$row->g_id,
+                'group_name' => $row->group_name,
                 'access_code' => $qrcode,
                 'qrcode' => $this->_qrcode_generator($qrcode)
             ];
@@ -172,6 +179,32 @@ class Admin extends CI_Controller
     }
 
     #helper
+    public function ddl_position()
+    {
+        if (!$this->input->is_ajax_request()) {
+            redirect('auth', 'refresh');
+        }
+
+        $view_data = [
+            'position' => $this->position_model->_get_all()
+        ];
+
+        echo json_encode($view_data);
+    }
+
+    public function ddl_group()
+    {
+        if (!$this->input->is_ajax_request()) {
+            redirect('auth', 'refresh');
+        }
+
+        $view_data = [
+            'group' => $this->group_model->_get_all()
+        ];
+
+        echo json_encode($view_data);
+    }
+
     public function _alpha_numeric_randomizer()
     {
         $arr = str_split('ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890'); // get all the characters into an array
