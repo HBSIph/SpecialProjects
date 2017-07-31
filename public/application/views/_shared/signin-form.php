@@ -14,8 +14,8 @@
                     <div id="ajax-response"></div>
                     <div class="well">
                         <div class="form-group password">
-                            <label class="control-label" for="password">ACCESS CODE<small class="important">* 4 digit system generated access code</small></label>
-                            <input type="password" id="password" class="form-control" name="password" maxlength="" value="<?= set_value('password') ?>" placeholder="&ast;&ast;&ast;&ast;" tabindex="2">
+                            <label class="control-label" for="password">ACCESS CODE<small class="important">* 4 digits system generated access code</small></label>
+                            <input type="password" id="password" class="form-control input-lg" name="password" maxlength="" value="<?= set_value('password') ?>" placeholder="&bullet;&bullet;&bullet;&bullet;" tabindex="2">
                         </div>
                     </div>
                     <button type="submit" id="btn-change-state" class="btn btn-primary btn-lg btn-block btn-rounded-corner" data-loading-text="loading..." tabindex="3">Login</button>
@@ -74,7 +74,7 @@
                                 // Reset form
                                 signIn.resetForm();
                                 // Redirect to dashboard
-                                window.location.replace(base_URL + '/auth');
+                                window.location.replace(baseURL + '/auth');
                             } else {
                                 // Error msg response
                                 _this.find('#ajax-response').html(data.msg);

@@ -21,12 +21,22 @@ class Person_Model extends CI_Model
     public function _create()
     {
         $data = array(
+            'prefix' => '',
             'first_name' => $this->input->post('first_name'),
             'middle_name' => $this->input->post('middle_name'),
             'last_name' => $this->input->post('last_name'),
+            'suffix' => '',
+            'role_id' => 2,
+            'is_validated' => 0,
+            'is_voted' => 0,
+            'is_candidate' => 0,
+            'group_id' => 0,
+            'position_id' => 0,
+            'is_deleted' => 0,
+            'dt_registered' => date('Y-m-d H:i:s')
         );
 
-        $sp = 'call sp_add_person(?, ?, ?)';
+        $sp = 'call sp_add_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $this->db->query($sp, $data);
     }
 
@@ -37,9 +47,12 @@ class Person_Model extends CI_Model
             'first_name' => $this->input->post('first_name'),
             'middle_name' => $this->input->post('middle_name'),
             'last_name' => $this->input->post('last_name'),
+            'access_code' => hash('sha256', $this->input->post('access_code')),
+            'is_validated' => 1,
+            'dt_updated' => date('Y-m-d H:i:s')
         );
 
-        $sp = 'call sp_update_person(?, ?, ?, ?)';
+        $sp = 'call sp_update_person(?, ?, ?, ?, ?, ?, ?)';
         $this->db->query($sp, $data);
     }
 

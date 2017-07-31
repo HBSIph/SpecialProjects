@@ -25,7 +25,7 @@ class Authme
     {
         $user = $this->CI->authme_model->_signin(hash('sha256', $password));
         if ($user) {
-            unset($user->password);
+            unset($user->access_code);
             $this->CI->session->set_userdata(array(
                 'logged_in' => true,
                 'user' => $user
