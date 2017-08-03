@@ -4,13 +4,7 @@ if (!defined('BASEPATH')) {
     exit('No direct script access allowed');
 }
 
-/*
- * Usage:
- * 1. Load helper in the controller or autoload
- * 2. Call the function in view
- */
-
-if (!function_exists('is_connected' || 'str_to_title' || 'convert_number_to_words' || 'noun_forms' || 'substr_username')) {
+if (!function_exists('is_connected' || 'str_to_title' || 'convert_number_to_words' || 'noun_forms' || 'substr_username' || 'position' || 'candidate')) {
 
     function is_connected()
     {
@@ -173,6 +167,22 @@ if (!function_exists('is_connected' || 'str_to_title' || 'convert_number_to_word
         foreach ($data as $row) {
             return $username = substr($row->first_name, 0, 1) . $row->last_name;
         }
+    }
+
+    function position()
+    {
+        $CI = &get_instance();
+        $CI->load->model('position_model');
+        $obj = $CI->position_model->_get_all();
+        return $obj;
+    }
+
+    function candidate($id)
+    {
+        $CI = &get_instance();
+        $CI->load->model('person_model');
+        $obj = $CI->person_model->_get_candidate($id);
+        return $obj;
     }
 
 }

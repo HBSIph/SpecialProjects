@@ -18,14 +18,28 @@ class Person_Model extends CI_Model
         return ($query->num_rows() > 0) ? $query->result() : false;
     }
 
+    public function _get_candidate($id)
+    {
+        $this->db
+            ->select('t1.id, t1.first_name, t1.middle_name, t1.last_name, t1.prefix, t1.suffix, t1.avatar, t3.name AS group_name')
+            ->from('tbl_person AS t1')
+            ->join('tbl_position AS t2', 't2.id = t1.position_id', 'left')
+            ->join('tbl_group AS t3', 't3.id = t1.group_id', 'left')
+            ->where('t1.position_id', $id)
+            ->order_by('t1.group_id', 'ASC');
+        $query = $this->db->get();
+        return ($query->num_rows() > 0) ? $query->result() : false;
+    }
+
     public function _create()
     {
         $data = array(
-            'prefix' => '',
+            'prefix' => $this->input->post('prefix'),
             'first_name' => $this->input->post('first_name'),
             'middle_name' => $this->input->post('middle_name'),
             'last_name' => $this->input->post('last_name'),
-            'suffix' => '',
+            'suffix' => $this->input->post('suffix'),
+            'gender' => $this->input->post('gender'),
             'role_id' => 2,
             'is_validated' => 0,
             'is_voted' => 0,
@@ -36,7 +50,7 @@ class Person_Model extends CI_Model
             'dt_registered' => date('Y-m-d H:i:s')
         );
 
-        $sp = 'call sp_add_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sp = 'call sp_add_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $this->db->query($sp, $data);
     }
 

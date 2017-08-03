@@ -97,9 +97,12 @@ class Admin extends CI_Controller
         }
 
         $this->form_validation
+            ->set_rules('prefix', 'Prefix', 'trim|xss_clean')
             ->set_rules('first_name', 'First Name', 'trim|required|xss_clean')
             ->set_rules('middle_name', 'Middle Name', 'trim|xss_clean')
             ->set_rules('last_name', 'Last Name', 'trim|required|xss_clean')
+            ->set_rules('suffix', 'Suffix', 'trim|xss_clean')
+            ->set_rules('gender', 'Gender', 'trim|required|xss_clean')
             ->set_error_delimiters('<li>', '</li>');
 
         if ($this->form_validation->run()) {
@@ -116,8 +119,8 @@ class Admin extends CI_Controller
                 'status' => false,
                 'msg' => '<div class="alert alert-danger"><ul class="validation-errors">' . validation_errors() . '</ul></div>',
                 'first_name' => form_error('first_name'),
-                'middle_name' => form_error('middle_name'),
-                'last_name' => form_error('last_name')
+                'last_name' => form_error('last_name'),
+                'gender' => form_error('gender')
             ];
             echo json_encode($view_data);
         }

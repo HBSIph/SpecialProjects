@@ -22,11 +22,10 @@ class Auth extends CI_Controller
         if (logged_in()) {
             $this->_user_role();
         } else {
-            $view_data = array(
+            $view_data = [
                 'page_title' => 'Login',
                 'page_header' => 'NU-NS'
-            );
-
+            ];
             $this->load->view('_shared/header', $view_data);
             $this->load->view('_shared/signin-form');
         }
@@ -44,23 +43,23 @@ class Auth extends CI_Controller
 
         if ($this->form_validation->run()) {
             if ($this->authme->signin(set_value('password'))) {
-                $view_data = array(
+                $view_data = [
                     'status' => true
-                );
+                ];
                 echo json_encode($view_data);
             } else {
-                $view_data = array(
+                $view_data = [
                     'status' => false,
                     'msg' => '<div class="alert alert-danger">Unable to login, Please double check your Access Code</div>',
-                );
+                ];
                 echo json_encode($view_data);
             }
         } else {
-            $view_data = array(
+            $view_data = [
                 'status' => false,
                 'msg' => '<div class="alert alert-danger"><ul class="validation-errors">' . validation_errors() . '</ul></div>',
                 'password' => form_error('password')
-            );
+            ];
             echo json_encode($view_data);
         }
     }
@@ -78,7 +77,9 @@ class Auth extends CI_Controller
                 redirect('admin/persons', 'refresh');
                 break;
             case 2:
-                redirect('user/dashboard', 'refresh');
+                redirect('user/ballot_form', 'refresh');
+                break;
+            default:
                 break;
         }
     }

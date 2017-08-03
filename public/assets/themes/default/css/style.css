@@ -15,7 +15,7 @@
   /* For IE6-8 */
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../../../material_icons/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(../../../material_icons/fonts/MaterialIcons-Regular.woff) format("woff"), url(../../../material_icons/fonts/MaterialIcons-Regular.ttf) format("truetype");
 }
-.material-icons, #ajax-preloader p:before {
+.material-icons, #ballot-form .panel-default .panel-body form .checkbox input:checked + label::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label::before, #ajax-preloader p:before {
   /* Preferred icon size */
   display: inline-block;
   font-family: 'Material Icons';
@@ -40,51 +40,51 @@
 }
 
 /* Rules for sizing the icon. */
-.material-icons.md-14, #ajax-preloader p.md-14:before {
+.material-icons.md-14, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-14::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-14::before, #ajax-preloader p.md-14:before {
   font-size: 14px;
   vertical-align: middle;
 }
 
-.material-icons.md-16, #ajax-preloader p.md-16:before {
+.material-icons.md-16, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-16::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-16::before, #ajax-preloader p.md-16:before {
   font-size: 16px;
   vertical-align: middle;
 }
 
-.material-icons.md-18, #ajax-preloader p.md-18:before {
+.material-icons.md-18, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-18::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-18::before, #ajax-preloader p.md-18:before {
   font-size: 18px;
   vertical-align: middle;
 }
 
-.material-icons.md-24, #ajax-preloader p.md-24:before {
+.material-icons.md-24, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-24::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-24::before, #ajax-preloader p.md-24:before {
   font-size: 24px;
   vertical-align: middle;
 }
 
-.material-icons.md-36, #ajax-preloader p.md-36:before {
+.material-icons.md-36, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-36::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-36::before, #ajax-preloader p.md-36:before {
   font-size: 36px;
   vertical-align: middle;
 }
 
-.material-icons.md-48, #ajax-preloader p.md-48:before {
+.material-icons.md-48, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-48::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-48::before, #ajax-preloader p.md-48:before {
   font-size: 48px;
   vertical-align: middle;
 }
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark, #ajax-preloader p.md-dark:before {
+.material-icons.md-dark, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark::before, #ajax-preloader p.md-dark:before {
   color: rgba(0, 0, 0, .54);
 }
 
-.material-icons.md-dark.md-inactive, #ajax-preloader p.md-dark.md-inactive:before {
+.material-icons.md-dark.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark.md-inactive::before, #ajax-preloader p.md-dark.md-inactive:before {
   color: rgba(0, 0, 0, .26);
 }
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light, #ajax-preloader p.md-light:before {
+.material-icons.md-light, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light::before, #ajax-preloader p.md-light:before {
   color: white;
 }
 
-.material-icons.md-light.md-inactive, #ajax-preloader p.md-light.md-inactive:before {
+.material-icons.md-light.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light.md-inactive::before, #ajax-preloader p.md-light.md-inactive:before {
   color: rgba(255, 255, 255, .3);
 }
 
@@ -102,6 +102,7 @@ body {
   background-color: #fff;
 }
 
+/* Signin Form*/
 #signin .logo {
   margin-top: 50px;
   margin-bottom: 20px;
@@ -160,6 +161,7 @@ body {
   content: '';
 }
 
+/* Admin Navbar */
 #main-navbar {
   background-color: #337ab7;
 }
@@ -297,6 +299,7 @@ body {
   transform: rotate(0deg);
 }
 
+/* Admin Dashboard */
 #dashboard .page-title {
   margin-top: 20px;
 }
@@ -493,6 +496,174 @@ body {
   margin-left: -20px;
 }
 
+/* Site Info */
+#header .jumbotron {
+  margin-bottom: 0;
+  background: transparent url("../../../../assets/images/header-bg.png") no-repeat center center;
+          border-radius: 0 0 0 0;
+
+  -webkit-border-radius: 0 0 0 0;
+     -moz-border-radius: 0 0 0 0;
+}
+#header .jumbotron h1 {
+  font-family: 'Libre Baskerville', Georgia, serif;
+  font-size: 48px;
+  color: #1d4567;
+  text-align: center;
+}
+#header .jumbotron p {
+  font-size: 28px;
+  color: #1d4567;
+  text-align: center;
+}
+
+/* Ballot Form */
+#ballot-form .panel-default {
+  border: 3px solid #1d4567;
+          border-radius: 0 0 0 0;
+  box-shadow: 0 0 0 0 transparent;
+
+  -webkit-border-radius: 0 0 0 0;
+     -moz-border-radius: 0 0 0 0;
+}
+#ballot-form .panel-default .panel-heading {
+  background-color: #1d4567;
+  border: none;
+          border-radius: 0 0 0 0;
+
+  -webkit-border-radius: 0 0 0 0;
+     -moz-border-radius: 0 0 0 0;
+}
+#ballot-form .panel-default .panel-heading h4 {
+  color: #fff;
+  text-transform: uppercase;
+}
+#ballot-form .panel-default .panel-heading h4 small {
+  color: #fff;
+  text-transform: none;
+}
+#ballot-form .panel-default .panel-body {
+  padding: 0;
+}
+#ballot-form .panel-default .panel-body form {
+  padding-top: 20px;
+  margin: 0;
+  overflow: hidden;
+}
+#ballot-form .panel-default .panel-body form .position-header {
+  color: #1d4567;
+}
+#ballot-form .panel-default .panel-body form .checkbox {
+  background-color: #f2f2f2;
+}
+#ballot-form .panel-default .panel-body form .checkbox input {
+  position: absolute;
+  left: -9999px;
+}
+#ballot-form .panel-default .panel-body form .checkbox label {
+  position: relative;
+  display: block;
+  padding: 15px 30px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border: 3px solid #f2f2f2;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .fullname, #ballot-form .panel-default .panel-body form .checkbox label .group {
+  margin-left: 40px;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .fullname {
+  font-size: 16px;
+  font-weight: 700;
+  color: #1d4567;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .group {
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .avatar {
+  margin-top: -5px;
+          filter: hue-rotate(-45deg);
+
+  -webkit-filter: hue-rotate(-45deg);
+}
+#ballot-form .panel-default .panel-body form .checkbox label:hover {
+  border: 3px solid #1d4567;
+}
+#ballot-form .panel-default .panel-body form .checkbox label::before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  content: '';
+  border: 3px solid #1d4567;
+          border-radius: 100% 100% 100% 100%;
+
+  -webkit-border-radius: 100% 100% 100% 100%;
+     -moz-border-radius: 100% 100% 100% 100%;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:checked + label {
+  background-color: #f9e2e2;
+  border: 3px solid #f9e2e2;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:checked + label:hover {
+  border: 3px solid #d9534f;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:checked + label::before {
+  padding: 5px;
+  font-size: 36px;
+  color: #d9534f;
+  content: '\e876';
+  border: 3px solid #d9534f;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label::before {
+  padding: 5px;
+  font-size: 36px;
+  color: #ddd;
+  content: '\e14C';
+  border: 3px solid #ccc;
+  /* animation: spin 0.2s; */
+}
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label {
+  cursor: not-allowed;
+  border: 3px solid #f2f2f2;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .fullname,
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .group {
+  color: #ccc;
+}
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .avatar {
+          filter: blur(10px) hue-rotate(-45deg);
+
+  -webkit-filter: blur(10px) hue-rotate(-45deg);
+}
+#ballot-form .panel-default .panel-body form a, #ballot-form .panel-default .panel-body form button {
+  margin: 40px 0 20px;
+  font-size: 20px;
+  color: #fff;
+  text-transform: uppercase;
+  background-color: #22527b;
+  border: 0;
+}
+#ballot-form .panel-default .panel-body form a:active, #ballot-form .panel-default .panel-body form a:focus, #ballot-form .panel-default .panel-body form button:active, #ballot-form .panel-default .panel-body form button:focus {
+  outline: 0;
+}
+#ballot-form .panel-default .panel-body form a:hover, #ballot-form .panel-default .panel-body form button:hover {
+  background-color: #1d4567;
+}
+#ballot-form .panel-default .panel-body form a:hover:after, #ballot-form .panel-default .panel-body form button:hover:after {
+  animation: slide .5s;
+}
+#ballot-form .panel-default .panel-body form a:after, #ballot-form .panel-default .panel-body form button:after {
+  padding-left: 10px;
+  font-family: 'fontAwesome';
+  content: '\f105';
+}
+
 /* Form */
 .form-group .form-control {
           border-radius: 0 0 0 0;
@@ -592,9 +763,6 @@ body {
 }
 
 /* Modal */
-.modal {
-  z-index: 2000;
-}
 .modal .modal-content {
   border: none;
           border-radius: 0 0 0 0;
@@ -761,10 +929,6 @@ body {
 }
 
 /* Others */
-.visibility {
-  visibility: hidden;
-}
-
 .btn-rounded-corner {
           border-radius: 24px 24px 24px 24px;
 
@@ -812,10 +976,6 @@ body {
 
 .btn {
   cursor: pointer;
-}
-
-em {
-  font-family: 'Libre Baskerville', serif;
 }
 
 h1 + hr {

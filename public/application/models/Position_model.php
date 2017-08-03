@@ -13,8 +13,10 @@ class Position_Model extends CI_Model
 
     public function _get_all()
     {
-        $sp = 'call sp_get_position()';
-        $query = $this->db->query($sp);
+        $this->db
+            ->select('id, name AS position_name, max_selection')
+            ->from('tbl_position');
+        $query = $this->db->get();
         return ($query->num_rows() > 0) ? $query->result() : false;
     }
 }

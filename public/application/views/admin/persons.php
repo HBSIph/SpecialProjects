@@ -53,22 +53,47 @@
                     <div id="ajax-response"></div>
                     <div class="container-fluid">
                         <div class="row">
-                            <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="col-lg-2 col-md-2 col-xs-12">
+                                <div class="form-group prefix">
+                                    <label class="control-label" for="prefix">Prefix</label>
+                                    <input type="text" id="prefix" class="form-control" name="prefix" tabindex="1">
+                                </div>
+                            </div>
+                            <div class="col-lg-5 col-md-5 col-xs-12">
                                 <div class="form-group first-name">
                                     <label class="control-label" for="first-name">First Name<span class="important">*</span></label>
-                                    <input type="text" id="first-name" class="form-control" name="first_name" tabindex="1">
+                                    <input type="text" id="first-name" class="form-control" name="first_name" tabindex="2">
                                 </div>
                             </div>
-                            <div class="col-lg-12 col-md-12 col-xs-12">
+                            <div class="col-lg-5 col-md-5 col-xs-12">
                                 <div class="form-group middle-name">
                                     <label class="control-label" for="middle-name">Middle Name</label>
-                                    <input type="text" id="middle-name" class="form-control" name="middle_name" tabindex="2">
+                                    <input type="text" id="middle-name" class="form-control" name="middle_name" tabindex="3">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <div class="form-group last-name">
+                                    <label class="control-label" for="last-name">Last Name<span class="important">*</span></label>
+                                    <input type="text" id="last-name" class="form-control" name="last_name" tabindex="4">
+                                </div>
+                            </div>
+                            <div class="col-lg-6 col-md-6 col-xs-12">
+                                <div class="form-group suffix">
+                                    <label class="control-label" for="suffix">Suffix</label>
+                                    <input type="text" id="suffix" class="form-control" name="suffix" tabindex="5">
                                 </div>
                             </div>
                             <div class="col-lg-12 col-md-12 col-xs-12">
-                                <div class="form-group last-name">
-                                    <label class="control-label" for="last-name">Last Name<span class="important">*</span></label>
-                                    <input type="text" id="last-name" class="form-control" name="last_name" tabindex="3">
+                                <div class="form-group gender">
+                                    <label class="control-label" for="gender">Gender<span class="important">*</span></label>
+                                    <div class="checkbox">
+                                        <label>
+                                            <input type="radio" id="gender" class="icheck" name="gender" value="Male" tabindex="6"> Male
+                                        </label>
+                                        <label>
+                                            <input type="radio" id="gender" class="icheck" name="gender" value="Female" tabindex="7"> Female
+                                        </label>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -76,7 +101,7 @@
                 </div>
                 <div class="modal-footer">
                     <div>
-                        <button type="submit" id="btn-change-state" class="btn btn-lg btn-primary btn-rounded-corner" data-loading-text="loading..." tabindex="4">Submit</button>
+                        <button type="submit" id="btn-change-state" class="btn btn-lg btn-primary btn-rounded-corner" data-loading-text="loading..." tabindex="7">Submit</button>
                         <button type="button" class="btn btn-lg btn-default btn-rounded-corner" data-dismiss="modal">Close</button>
                     </div>
                 </div>
@@ -353,6 +378,7 @@
                 var el = $('#add-person');
                 el.find('form')[0].reset();
                 el.find('.form-group').removeClass('has-error');
+                el.find('label > div').removeClass('checked');
             },
             submitForm: function () {
                 addPerson.emptyAjaxResponse();
@@ -395,6 +421,7 @@
                                 // Form error
                                 (Boolean(data.first_name)) ? el.find('.first-name').addClass('has-error') : el.find('.first-name').removeClass('has-error');
                                 (Boolean(data.last_name)) ? el.find('.last-name').addClass('has-error') : el.find('.last-name').removeClass('has-error');
+                                (Boolean(data.gender)) ? el.find('.gender').addClass('has-error') : el.find('.gender').removeClass('has-error');
                             }
                         },
                         error: function (jqXHR, textStatus, errorThrown) {
@@ -584,6 +611,7 @@
                 this.activeList();
                 this.reloadTable();
                 this.navbarAffix();
+                this.customCheckbox();
             },
             activeList: function () {
                 var str = location.href.toLowerCase();
