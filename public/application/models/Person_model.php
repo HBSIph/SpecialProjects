@@ -65,13 +65,10 @@ class Person_Model extends CI_Model
             'suffix' => $this->input->post('suffix'),
             'access_code' => hash('sha256', $this->input->post('access_code')),
             'is_validated' => 1,
-            'is_candidate' => $this->input->post('is_candidate'),
-            'position_id' => $this->input->post('p_id'),
-            'group_id' => $this->input->post('g_id'),
             'dt_updated' => date('Y-m-d H:i:s')
         );
 
-        $sp = 'call sp_update_person(?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)';
+        $sp = 'call sp_update_person(?, ?, ?, ?, ?, ?, ?, ?, ?)';
         $this->db->query($sp, $data);
     }
 
