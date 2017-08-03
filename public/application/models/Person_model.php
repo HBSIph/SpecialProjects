@@ -72,6 +72,18 @@ class Person_Model extends CI_Model
         $this->db->query($sp, $data);
     }
 
+    public function _update_status($id)
+    {
+        $data = array(
+            'id' => $id,
+            'is_voted' => 1,
+            'dt_updated' => date('Y-m-d H:i:s')
+        );
+
+        $sp = 'call sp_update_person_status(?, ?, ?)';
+        $this->db->query($sp, $data);
+    }
+
     public function _delete($id)
     {
         $sp = 'call sp_delete_person(?)';

@@ -26,7 +26,6 @@ class User extends CI_Controller
                 'page_title' => 'Ballot Form',
                 'page_header' => 'EVS'
             ];
-
             $this->load->view('_shared/header', $view_data);
             $this->load->view('user/ballot-form');
         } else {
@@ -40,9 +39,9 @@ class User extends CI_Controller
             $this->form_validation
                 ->set_rules('candidate_id[]', 'Candidate', 'required', array('required' => 'Please select a %s.'))
                 ->set_error_delimiters('<li>', '</li>');
-
             if ($this->form_validation->run()) {
                 $this->tally_model->_create();
+                $this->person_model->_update_status($this->id);
                 redirect('auth/signout', 'refresh');
             } else {
                 $view_data = [

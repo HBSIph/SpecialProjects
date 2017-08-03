@@ -27,6 +27,7 @@
                         <th>Is Candidate?</th>
                         <th>Is Validated?</th>
                         <th>Is Voted?</th>
+                        <th>Updated On</th>
                         <th></th>
                         <th></th>
                     </tr>
@@ -269,6 +270,7 @@
                                 return ((parseInt(data) === 1) ? '<span class="label label-success">yes</span>' : '<span class="label label-danger">no</span>');
                             }
                         },
+                        {"data": "dt_updated"},
                         {
                             searchable: false,
                             data: "id",
@@ -285,9 +287,9 @@
                         }
                     ],
                     "lengthMenu": [[10, 25, 50, 75, 100, -1], [10, 25, 50, 75, 100, "All"]],
-                    "order": [[1, "desc"]],
+                    "order": [[1, "asc"]],
                     "columnDefs": [
-                        {"orderable": false, "targets": [0, 5, 6]}
+                        {"orderable": false, "targets": [0, 6, 7]}
                     ],
                     "fnCreatedRow": function (row, data, index) {
                         $('td', row).eq(0).html(index + 1);

@@ -53,7 +53,7 @@ class Admin extends CI_Controller
     {
         if (logged_in() && $this->role === 1) {
             $this->datatables
-                ->select('id, CONCAT(first_name, " ", middle_name, " ", last_name) AS full_name, is_validated, is_voted, is_candidate', FALSE)
+                ->select('id, CONCAT(first_name, " ", middle_name, " ", last_name, " ", suffix) AS full_name, is_validated, is_voted, is_candidate, dt_updated', FALSE)
                 ->from('tbl_person')
                 ->where('role_id', 2)
                 ->where('is_deleted', 0);

@@ -116,52 +116,6 @@
 
 <script type="text/javascript">
     $(function () {
-        var baseURL = location.origin;
-        //var isProcessing = false;
-
-        // POST: Add Tally
-        var addTally = {
-            init: function () {
-                this.submitForm();
-            },
-            submitForm: function () {
-                //Prevent multiple ajax request
-                //if (isProcessing) return;
-                //isProcessing = true;
-
-                $('#ballot-form').on('submit', function (e) {
-                    var el = $(this);
-                    var btn = el.find('#btn-change-state');
-                    var data = el.serialize();
-                    $.ajax({
-                        url: baseURL + '/user/submit_form/',
-                        type: 'POST',
-                        dataType: 'json',
-                        data: data,
-                        cache: false,
-                        processData: false,
-                        beforeSend: function () {
-                            el.find('#ajax-preloader').html('<p></p>').show();
-                            btn.button('loading');
-                        },
-                        complete: function () {
-                            el.find('#ajax-preloader').html('<p></p>').hide('fast');
-                            btn.button('reset');
-                        },
-                        success: function (data) {
-                            if (data.status === true) {
-                                console.log(data.msg);
-                            }
-                        },
-                        error: function (jqXHR, textStatus, errorThrown) {
-                            console.log('The following error occurred: ' + textStatus, errorThrown);
-                        }
-                    });
-                    e.preventDefault();
-                });
-            }
-        };
-
         // Limit number of checkbox selected
         var checkboxLimit = {
             init: function () {
@@ -194,7 +148,6 @@
                 });
                 el.find('.modal-footer #confirm').on('click', function () {
                     $(this).data('form').submit();
-                    //addTally.init();
                 });
             }
         };
