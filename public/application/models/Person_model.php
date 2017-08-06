@@ -6,6 +6,7 @@ if (!defined('BASEPATH')) {
 
 class Person_Model extends CI_Model
 {
+
     public function __construct()
     {
         parent::__construct();
@@ -29,6 +30,17 @@ class Person_Model extends CI_Model
             ->order_by('t1.group_id', 'ASC');
         $query = $this->db->get();
         return ($query->num_rows() > 0) ? $query->result() : false;
+    }
+
+    public function _get_status($access_code)
+    {
+        $this->db
+            ->select('*')
+            ->from('tbl_person')
+            ->where('tbl_person.is_voted', 0)
+            ->where('tbl_person.access_code', hash('sha256', $access_code));
+        $query = $this->db->get();
+        return ($query->num_rows() > 0) ? $query->row() : false;
     }
 
     public function _create()

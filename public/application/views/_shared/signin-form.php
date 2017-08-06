@@ -3,10 +3,10 @@
         <div class="row">
             <div class="logo col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4 wow bounceInDown">
                 <p class="text-center">
-                    <a href="<?= base_url() ?>" title="Back to homepage"><img src="<?= base_url('assets/images/headstart-logo.png') ?>" alt="Logo"/></a>
+                    <a href="<?= base_url() ?>" title="Logo"><img src="<?= base_url('assets/images/nu-ns-logo.png') ?>" alt="Logo"/></a>
                 </p>
             </div>
-            <div class="signin col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4 box-shadow-effect">
+            <div class="signin col-md-offset-4 col-md-4 col-lg-offset-4 col-lg-4">
                 <h2 class="text-center"><?= $page_title ?></h2>
                 <hr/>
                 <form id="sign-form">
@@ -14,8 +14,8 @@
                     <div id="ajax-response"></div>
                     <div class="well">
                         <div class="form-group password">
-                            <label class="control-label" for="password">ACCESS CODE<small class="important">* 4 digits system generated access code</small></label>
-                            <input type="password" id="password" class="form-control input-lg" name="password" maxlength="" value="<?= set_value('password') ?>" placeholder="&bullet;&bullet;&bullet;&bullet;" tabindex="2">
+                            <label class="control-label" for="password">ACCESS CODE<span class="important">* 5 digits system generated access code</span></label>
+                            <input type="password" id="password" class="form-control input-lg" name="password" maxlength="5" value="<?= set_value('password') ?>" placeholder="&bullet;&bullet;&bullet;&bullet;&bullet;" tabindex="2">
                         </div>
                     </div>
                     <button type="submit" id="btn-change-state" class="btn btn-primary btn-lg btn-block btn-rounded-corner" data-loading-text="loading..." tabindex="3">Login</button>
@@ -109,12 +109,13 @@
                 });
             },
             disableContextMenu: function () {
+                var _this = $('body');
                 // Disable context menu (right click menu)
-                $(this).bind("contextmenu", function (e) {
+                _this.bind("contextmenu", function (e) {
                     e.preventDefault();
                 });
                 // Disable highlighting
-                $(this).bind("selectstart", function (e) {
+                _this.bind("selectstart", function (e) {
                     e.preventDefault();
                 });
             }

@@ -38,7 +38,8 @@ class Auth extends CI_Controller
         }
 
         $this->form_validation
-            ->set_rules('password', 'Access Code', 'trim|required|xss_clean')
+            ->set_rules('password', 'Access Code', 'trim|required|xss_clean|callback_is_voted',
+                array('required' => '%s field is required.'))
             ->set_error_delimiters('<li>', '</li>');
 
         if ($this->form_validation->run()) {
@@ -70,6 +71,16 @@ class Auth extends CI_Controller
     }
 
     #helper
+    public function is_voted()
+    {
+        if ($this->person_model->_get_status(set_value('password'))) {
+            return true;
+        } else {
+            $this->form_validation->set_message('is_voted', 'Access code is invalid, Please notify the technical support.');
+            return false;
+        }
+    }
+
     private function _user_role()
     {
         switch (user('role_id')) {

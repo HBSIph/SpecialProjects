@@ -5,8 +5,8 @@
             <div class="col-lg-12 col-md-12 col-xs-12">
                 <div class="row">
                     <div class="jumbotron">
-                        <h1>Nazareth School of National University</h1>
-                        <p>JHS Student Council Election</p>
+                        <h1>&nbsp;</h1>
+                        <p>&nbsp;</p>
                     </div>
                 </div>
             </div>
@@ -79,23 +79,16 @@
 </div>
 
 <!-- Confirmation Modal -->
-<div class="modal fade" id="confirmation" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+<div class="modal custom-modal fade" id="confirmation" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
     <div class="modal-dialog modal-md" role="document">
         <div class="modal-content">
             <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true"><i class="material-icons">clear</i></span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Confirmation</h4>
+                <h4 class="modal-title" id="myModalLabel">Confirm your selections</h4>
             </div>
             <?= form_open() ?>
             <div class="modal-body">
-                <h4>Confirm your selections</h4>
-                <hr/>
-                <ul>
-                    <li>If correct, click Submit Ballot to cast your votes.</li>
-                    <li>To alter your selections, click Return to Ballot.</li>
-                </ul>
+                <p>If correct, click Submit Ballot to cast your votes.</p>
+                <p>To alter your selections, click Return to Ballot.</p>
             </div>
             <div class="modal-footer">
                 <div>
@@ -141,12 +134,12 @@
         // Confirmation dialog
         var confirmationDialog = {
             init: function () {
-                var el = $('#confirmation');
-                el.on('show.bs.modal', function (e) {
+                var _this = $('#confirmation');
+                _this.on('show.bs.modal', function (e) {
                     var form = $(e.relatedTarget).closest('form');
                     $(this).find('.modal-footer #confirm').data('form', form);
                 });
-                el.find('.modal-footer #confirm').on('click', function () {
+                _this.find('.modal-footer #confirm').on('click', function () {
                     $(this).data('form').submit();
                 });
             }
@@ -160,12 +153,14 @@
                 this.buttonToggle();
             },
             disableContextMenu: function () {
-                $(this).bind("contextmenu", function (e) {
+                var _this = $('body');
+                _this.bind("contextmenu", function (e) {
                     e.preventDefault();
                 });
             },
             disableHighlighting: function () {
-                $(this).bind("selectstart", function (e) {
+                var _this = $('body');
+                _this.bind("selectstart", function (e) {
                     e.preventDefault();
                 });
             },

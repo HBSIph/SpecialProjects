@@ -112,10 +112,16 @@ body {
 }
 #signin .signin {
   background-color: #fff;
+  border: 3px solid #000144;
+          border-radius: 25px 25px 25px 25px;
   box-shadow: 0 0 100px 0 rgba(0, 0, 0, .2);
+
+  -webkit-border-radius: 25px 25px 25px 25px;
+     -moz-border-radius: 25px 25px 25px 25px;
 }
 #signin .signin h2 {
   margin-top: 20px;
+  color: #000144;
   text-transform: uppercase;
 }
 #signin .signin h2 + hr {
@@ -126,33 +132,62 @@ body {
   margin-bottom: 20px;
   background-color: #f5f5f5;
 }
+#signin .signin form .well .form-group .control-label {
+  color: #000144;
+}
 #signin .signin form .well .form-group .form-control {
+  font-size: 32px;
+  color: #000144;
+  border: 3px solid #000144;
+  border-right: none;
   box-shadow: 0 0 0 0 transparent;
 }
 #signin .signin form .well .form-group .form-control + span {
   background-color: transparent;
-  border-left: none;
-          border-radius: 0 0 0 0;
-
-  -webkit-border-radius: 0 0 0 0;
-     -moz-border-radius: 0 0 0 0;
+  border: 3px solid #000144;
 }
 #signin .signin form .well .form-group .form-control + span:active, #signin .signin form .well .form-group .form-control + span:focus {
-  outline: none;
+  outline: 0;
+}
+#signin .signin form .well .form-group .form-control + span i {
+  font-size: 20px;
+  color: #000144;
+}
+#signin .signin form .well .form-group .form-control:active, #signin .signin form .well .form-group .form-control:focus {
+  border-color: #d5ba2f;
 }
 #signin .signin form .well .form-group:last-child {
   margin-bottom: 0;
+}
+#signin .signin form .well .has-error .control-label {
+  color: #a94442;
+}
+#signin .signin form .well .has-error .form-control {
+  border-color: #a94442;
+}
+#signin .signin form .well .has-error .form-control + span {
+  border-color: #a94442;
+}
+#signin .signin form .well .has-error .form-control + span i {
+  color: #a94442;
 }
 #signin .signin form .btn {
   margin: 20px 0;
   color: #fff;
   text-transform: uppercase;
+  background-color: #000144;
   border: 0;
 }
 #signin .signin form .btn:active, #signin .signin form .btn:focus {
   outline: 0;
 }
-#signin .signin form .btn:after {
+#signin .signin form .btn:hover {
+  background-color: #00015e;
+}
+#signin .signin form .btn:hover::after {
+  animation: slide .5s;
+}
+#signin .signin form .btn::after {
   padding-left: 10px;
   font-family: 'fontAwesome';
   content: '\f105';
@@ -497,9 +532,12 @@ body {
 }
 
 /* Site Info */
+#header {
+  background: transparent url("../../../../assets/images/header-bg.png") no-repeat center center;
+}
 #header .jumbotron {
   margin-bottom: 0;
-  background: transparent url("../../../../assets/images/header-bg.png") no-repeat center center;
+  background: transparent url("../../../../assets/images/new-header-bg.png") no-repeat center center;
           border-radius: 0 0 0 0;
 
   -webkit-border-radius: 0 0 0 0;
@@ -508,18 +546,19 @@ body {
 #header .jumbotron h1 {
   font-family: 'Libre Baskerville', Georgia, serif;
   font-size: 48px;
-  color: #1d4567;
+  font-weight: 700;
+  color: #000144;
   text-align: center;
 }
 #header .jumbotron p {
   font-size: 28px;
-  color: #1d4567;
+  color: #000144;
   text-align: center;
 }
 
 /* Ballot Form */
 #ballot-form .panel-default {
-  border: 3px solid #1d4567;
+  border: 3px solid #000144;
           border-radius: 0 0 0 0;
   box-shadow: 0 0 0 0 transparent;
 
@@ -527,7 +566,7 @@ body {
      -moz-border-radius: 0 0 0 0;
 }
 #ballot-form .panel-default .panel-heading {
-  background-color: #1d4567;
+  background-color: #000144;
   border: none;
           border-radius: 0 0 0 0;
 
@@ -551,7 +590,7 @@ body {
   overflow: hidden;
 }
 #ballot-form .panel-default .panel-body form .position-header {
-  color: #1d4567;
+  color: #000144;
 }
 #ballot-form .panel-default .panel-body form .checkbox {
   background-color: #f2f2f2;
@@ -559,52 +598,6 @@ body {
 #ballot-form .panel-default .panel-body form .checkbox input {
   position: absolute;
   left: -9999px;
-}
-#ballot-form .panel-default .panel-body form .checkbox label {
-  position: relative;
-  display: block;
-  padding: 15px 30px;
-  white-space: nowrap;
-  cursor: pointer;
-  user-select: none;
-  border: 3px solid #f2f2f2;
-}
-#ballot-form .panel-default .panel-body form .checkbox label .fullname, #ballot-form .panel-default .panel-body form .checkbox label .group {
-  margin-left: 40px;
-}
-#ballot-form .panel-default .panel-body form .checkbox label .fullname {
-  font-size: 16px;
-  font-weight: 700;
-  color: #1d4567;
-}
-#ballot-form .panel-default .panel-body form .checkbox label .group {
-  font-size: 14px;
-  font-weight: 400;
-  color: gray;
-}
-#ballot-form .panel-default .panel-body form .checkbox label .avatar {
-  margin-top: -5px;
-          filter: hue-rotate(-45deg);
-
-  -webkit-filter: hue-rotate(-45deg);
-}
-#ballot-form .panel-default .panel-body form .checkbox label:hover {
-  border: 3px solid #1d4567;
-}
-#ballot-form .panel-default .panel-body form .checkbox label::before {
-  position: absolute;
-  top: 10px;
-  bottom: 10px;
-  left: 10px;
-  display: block;
-  width: 50px;
-  height: 50px;
-  content: '';
-  border: 3px solid #1d4567;
-          border-radius: 100% 100% 100% 100%;
-
-  -webkit-border-radius: 100% 100% 100% 100%;
-     -moz-border-radius: 100% 100% 100% 100%;
 }
 #ballot-form .panel-default .panel-body form .checkbox input:checked + label {
   background-color: #f9e2e2;
@@ -626,14 +619,12 @@ body {
   color: #ddd;
   content: '\e14C';
   border: 3px solid #ccc;
-  /* animation: spin 0.2s; */
 }
 #ballot-form .panel-default .panel-body form .checkbox input:disabled + label {
   cursor: not-allowed;
   border: 3px solid #f2f2f2;
 }
-#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .fullname,
-#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .group {
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label .fullname, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label .group {
   color: #ccc;
 }
 #ballot-form .panel-default .panel-body form .checkbox input:disabled + label .avatar {
@@ -641,24 +632,80 @@ body {
 
   -webkit-filter: blur(10px) hue-rotate(-45deg);
 }
-#ballot-form .panel-default .panel-body form a, #ballot-form .panel-default .panel-body form button {
+#ballot-form .panel-default .panel-body form .checkbox input:disabled + label:hover {
+  background-color: #f2f2f2;
+}
+#ballot-form .panel-default .panel-body form .checkbox label {
+  position: relative;
+  display: block;
+  padding: 15px 30px;
+  white-space: nowrap;
+  cursor: pointer;
+  user-select: none;
+  border: 3px solid #f2f2f2;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .fullname, #ballot-form .panel-default .panel-body form .checkbox label .group {
+  margin-left: 40px;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .fullname {
+  font-size: 16px;
+  font-weight: 700;
+  color: #000144;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .group {
+  font-size: 14px;
+  font-weight: 400;
+  color: gray;
+}
+#ballot-form .panel-default .panel-body form .checkbox label .avatar {
+  margin-top: -5px;
+          filter: hue-rotate(-45deg);
+
+  -webkit-filter: hue-rotate(-45deg);
+}
+#ballot-form .panel-default .panel-body form .checkbox label:hover {
+  background-color: #fcf9ee;
+  border: 3px solid #d5ba2f;
+}
+#ballot-form .panel-default .panel-body form .checkbox label:hover::before {
+  border: 3px solid #d5ba2f;
+          border-radius: 100% 100% 100% 100%;
+
+  -webkit-border-radius: 100% 100% 100% 100%;
+     -moz-border-radius: 100% 100% 100% 100%;
+}
+#ballot-form .panel-default .panel-body form .checkbox label::before {
+  position: absolute;
+  top: 10px;
+  bottom: 10px;
+  left: 10px;
+  display: block;
+  width: 50px;
+  height: 50px;
+  content: '';
+  border: 3px solid #000144;
+          border-radius: 100% 100% 100% 100%;
+
+  -webkit-border-radius: 100% 100% 100% 100%;
+     -moz-border-radius: 100% 100% 100% 100%;
+}
+#ballot-form .panel-default .panel-body form .btn {
   margin: 40px 0 20px;
-  font-size: 20px;
   color: #fff;
   text-transform: uppercase;
-  background-color: #22527b;
+  background-color: #000144;
   border: 0;
 }
-#ballot-form .panel-default .panel-body form a:active, #ballot-form .panel-default .panel-body form a:focus, #ballot-form .panel-default .panel-body form button:active, #ballot-form .panel-default .panel-body form button:focus {
+#ballot-form .panel-default .panel-body form .btn:active, #ballot-form .panel-default .panel-body form .btn:focus {
   outline: 0;
 }
-#ballot-form .panel-default .panel-body form a:hover, #ballot-form .panel-default .panel-body form button:hover {
-  background-color: #1d4567;
+#ballot-form .panel-default .panel-body form .btn:hover {
+  background-color: #000277;
 }
-#ballot-form .panel-default .panel-body form a:hover:after, #ballot-form .panel-default .panel-body form button:hover:after {
+#ballot-form .panel-default .panel-body form .btn:hover::after {
   animation: slide .5s;
 }
-#ballot-form .panel-default .panel-body form a:after, #ballot-form .panel-default .panel-body form button:after {
+#ballot-form .panel-default .panel-body form .btn::after {
   padding-left: 10px;
   font-family: 'fontAwesome';
   content: '\f105';
@@ -762,7 +809,7 @@ body {
   content: "\f15e";
 }
 
-/* Modal */
+/* Default Modal */
 .modal .modal-content {
   border: none;
           border-radius: 0 0 0 0;
@@ -888,6 +935,60 @@ body {
      -moz-border-radius: 0 0 0 0;
 }
 
+/* Custom modal */
+.custom-modal .modal-content {
+  border: 3px solid #000144;
+          border-radius: 25px 25px 25px 25px;
+
+  -webkit-border-radius: 25px 25px 25px 25px;
+     -moz-border-radius: 25px 25px 25px 25px;
+}
+.custom-modal .modal-content .modal-header {
+  padding: 15px;
+  background-color: #fff;
+          border-radius: 25px 25px 0 0;
+
+  -webkit-border-radius: 25px 25px 0 0;
+     -moz-border-radius: 25px 25px 0 0;
+}
+.custom-modal .modal-content .modal-header .modal-title {
+  font-size: 20px;
+  font-weight: 700;
+  color: #000144;
+  text-align: center;
+  text-shadow: none;
+  text-transform: uppercase;
+}
+.custom-modal .modal-content .modal-body {
+  color: #000144;
+  text-align: center;
+}
+.custom-modal .modal-content .modal-footer {
+  padding: 15px;
+  text-align: center;
+  background-color: #fff;
+          border-radius: 0 0 25px 25px;
+
+  -webkit-border-radius: 0 0 25px 25px;
+     -moz-border-radius: 0 0 25px 25px;
+}
+.custom-modal .modal-content .modal-footer .btn-primary {
+  color: #fff;
+  background-color: #000144;
+  border: none;
+}
+.custom-modal .modal-content .modal-footer .btn-primary:hover {
+  background-color: #000277;
+}
+.custom-modal .modal-content .modal-footer .btn-default {
+  color: #000144;
+  background-color: #d5ba2f;
+  border: none;
+}
+.custom-modal .modal-content .modal-footer .btn-default:hover {
+  background-color: #dec859;
+}
+
 /* Alert */
 .alert {
   border: none;
@@ -900,9 +1001,6 @@ body {
 .alert ul {
   padding-left: 20px;
   margin: 10px 0;
-}
-.alert dl {
-  margin: 0;
 }
 
 /* Ajax preloader */
@@ -923,7 +1021,7 @@ body {
 }
 #ajax-preloader p:before {
   font-size: 36px;
-  content: '\E863';
+  content: '\E1AF';
   -webkit-animation: spin 1s infinite linear;
           animation: spin 1s infinite linear;
 }
@@ -1070,9 +1168,6 @@ footer .container .footer {
 }
 footer .container .footer p {
   margin-top: 20px;
-}
-footer .container .footer p a:hover, footer .container .footer p a:focus, footer .container .footer p a:active {
-  color: #dc133c;
 }
 
 /* Media Queries */

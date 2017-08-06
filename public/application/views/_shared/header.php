@@ -15,7 +15,6 @@
     <link rel="stylesheet" href="<?= base_url('assets/icheck/skins/all.css'); ?>">
     <link rel="stylesheet" href="<?= base_url('assets/themes/default/css/style.min.css') ?>">
     <link rel="icon" href="<?= base_url('assets/images/favicon.ico') ?>">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Libre+Baskerville:400i|Roboto:400,700|Oswald:300,400">
     <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
     <!-- [if lt IE 9] -->
