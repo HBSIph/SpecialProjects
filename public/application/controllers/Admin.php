@@ -8,7 +8,7 @@ class Admin extends CI_Controller
     public function __construct()
     {
         parent::__construct();
-        $this->output->enable_profiler(FALSE);
+        $this->output->enable_profiler(false);
         $this->role = (int)user('role_id');
     }
 

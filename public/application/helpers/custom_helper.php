@@ -184,5 +184,4 @@ if (!function_exists('is_connected' || 'str_to_title' || 'convert_number_to_word
         $obj = $CI->person_model->_get_candidate($id);
         return $obj;
     }
-
 }

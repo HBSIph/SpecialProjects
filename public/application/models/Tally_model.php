@@ -22,6 +22,13 @@ class Tally_Model extends CI_Model
             $this->db->query($sp, $data);
         }
     }
+
+    public function _get_summary_results($id)
+    {
+        $sp = 'call sp_get_votes_by_position(?)';
+        $query = $this->db->query($sp, array('id' => $id));
+        return ($query->num_rows() > 0) ? $query->result() : false;
+    }
 }
 
 /* 

@@ -10,7 +10,7 @@
                 <h2 class="text-center"><?= $page_title ?></h2>
                 <hr/>
                 <form id="sign-form">
-                    <div id="ajax-preloader"></div>
+                    <div id="custom-ajax-preloader"></div>
                     <div id="ajax-response"></div>
                     <div class="well">
                         <div class="form-group password">
@@ -62,11 +62,11 @@
                         cache: false,
                         processData: false,
                         beforeSend: function () {
-                            _this.find('#ajax-preloader').html('<p></p>').show();
+                            _this.find('#custom-ajax-preloader').html('<p></p>').show();
                             btn.button('loading');
                         },
                         complete: function () {
-                            _this.find('#ajax-preloader').html('<p></p>').hide('fast');
+                            _this.find('#custom-ajax-preloader').html('<p></p>').hide('fast');
                             btn.button('reset');
                         },
                         success: function (data) {

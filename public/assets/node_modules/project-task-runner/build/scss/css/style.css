@@ -15,7 +15,7 @@
   /* For IE6-8 */
   src: local("Material Icons"), local("MaterialIcons-Regular"), url(../../../material_icons/fonts/MaterialIcons-Regular.woff2) format("woff2"), url(../../../material_icons/fonts/MaterialIcons-Regular.woff) format("woff"), url(../../../material_icons/fonts/MaterialIcons-Regular.ttf) format("truetype");
 }
-.material-icons, #ballot-form .panel-default .panel-body form .checkbox input:checked + label::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label::before, #ajax-preloader p:before {
+.material-icons, #ballot-form .panel-default .panel-body form .checkbox input:checked + label::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label::before {
   /* Preferred icon size */
   display: inline-block;
   font-family: 'Material Icons';
@@ -40,51 +40,51 @@
 }
 
 /* Rules for sizing the icon. */
-.material-icons.md-14, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-14::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-14::before, #ajax-preloader p.md-14:before {
+.material-icons.md-14, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-14::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-14::before {
   font-size: 14px;
   vertical-align: middle;
 }
 
-.material-icons.md-16, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-16::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-16::before, #ajax-preloader p.md-16:before {
+.material-icons.md-16, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-16::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-16::before {
   font-size: 16px;
   vertical-align: middle;
 }
 
-.material-icons.md-18, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-18::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-18::before, #ajax-preloader p.md-18:before {
+.material-icons.md-18, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-18::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-18::before {
   font-size: 18px;
   vertical-align: middle;
 }
 
-.material-icons.md-24, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-24::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-24::before, #ajax-preloader p.md-24:before {
+.material-icons.md-24, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-24::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-24::before {
   font-size: 24px;
   vertical-align: middle;
 }
 
-.material-icons.md-36, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-36::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-36::before, #ajax-preloader p.md-36:before {
+.material-icons.md-36, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-36::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-36::before {
   font-size: 36px;
   vertical-align: middle;
 }
 
-.material-icons.md-48, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-48::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-48::before, #ajax-preloader p.md-48:before {
+.material-icons.md-48, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-48::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-48::before {
   font-size: 48px;
   vertical-align: middle;
 }
 
 /* Rules for using icons as black on a light background. */
-.material-icons.md-dark, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark::before, #ajax-preloader p.md-dark:before {
+.material-icons.md-dark, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark::before {
   color: rgba(0, 0, 0, .54);
 }
 
-.material-icons.md-dark.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark.md-inactive::before, #ajax-preloader p.md-dark.md-inactive:before {
+.material-icons.md-dark.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-dark.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-dark.md-inactive::before {
   color: rgba(0, 0, 0, .26);
 }
 
 /* Rules for using icons as white on a dark background. */
-.material-icons.md-light, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light::before, #ajax-preloader p.md-light:before {
+.material-icons.md-light, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light::before {
   color: white;
 }
 
-.material-icons.md-light.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light.md-inactive::before, #ajax-preloader p.md-light.md-inactive:before {
+.material-icons.md-light.md-inactive, #ballot-form .panel-default .panel-body form .checkbox input:checked + label.md-light.md-inactive::before, #ballot-form .panel-default .panel-body form .checkbox input:disabled + label.md-light.md-inactive::before {
   color: rgba(255, 255, 255, .3);
 }
 
@@ -1003,27 +1003,45 @@ body {
   margin: 10px 0;
 }
 
-/* Ajax preloader */
+/* Ajax Preloader */
 #ajax-preloader {
   position: absolute;
   top: 50%;
   left: 50%;
   z-index: 1000;
-  width: 100%;
-  background-color: rgba(255, 255, 255, .75);
   transform: translate(-50%, -50%);
 }
 #ajax-preloader p {
+  width: 50px;
+  height: 50px;
   padding: 10px 0;
   line-height: 0;
-  color: #777;
   text-align: center;
+  border: 6px solid transparent;
+  border-top: 6px solid #285f8f;
+  border-right: 6px solid #337ab7;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
 }
-#ajax-preloader p:before {
-  font-size: 36px;
-  content: '\E1AF';
-  -webkit-animation: spin 1s infinite linear;
-          animation: spin 1s infinite linear;
+
+#custom-ajax-preloader {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 1000;
+  transform: translate(-50%, -50%);
+}
+#custom-ajax-preloader p {
+  width: 50px;
+  height: 50px;
+  padding: 10px 0;
+  line-height: 0;
+  text-align: center;
+  border: 6px solid transparent;
+  border-top: 6px solid #000144;
+  border-right: 6px solid #00015e;
+  border-radius: 50%;
+  animation: spin 2s linear infinite;
 }
 
 /* Others */
@@ -1129,8 +1147,8 @@ h6 + hr {
             transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 @keyframes spin {
@@ -1139,8 +1157,8 @@ h6 + hr {
             transform: rotate(0deg);
   }
   to {
-    -webkit-transform: rotate(180deg);
-            transform: rotate(180deg);
+    -webkit-transform: rotate(360deg);
+            transform: rotate(360deg);
   }
 }
 /* Sticky footer */
